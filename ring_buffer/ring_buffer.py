@@ -9,8 +9,7 @@ class RingBuffer:
         self.storage[self.current] = item
         self.current += 1
         self.current %= self.capacity #when current = capacity, current % capacity = 0, replaces 0th index.
-        if self.length < self.capacity: #if length is less than capacity, length increments
-            self.length += 1
+        self.length += 1
 
     def get(self):
         return self.storage[:self.length] #get the full list, by length.
