@@ -8,8 +8,8 @@ class RingBuffer:
     def append(self, item):
         self.storage[self.current] = item
         self.current += 1
-        self.current %= self.capacity #when current = capacity, current % capacity = 0, replaces 0th index.
         self.length += 1
+        self.current %= self.capacity #when current = capacity, current % capacity = 0, replaces 0th index.
 
     def get(self):
         return self.storage[:self.length] #get the full list, by length.
