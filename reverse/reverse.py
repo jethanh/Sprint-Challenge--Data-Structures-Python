@@ -50,15 +50,18 @@ class LinkedList:
 
     def print_list(self):
         current = self.head
-        print('\n')
+        lst = []
         while current:
-            print(current.value)
+            lst.append(current.value)
             current = current.next_node
+        print('     ', lst)
 
 test = LinkedList()
 test.add_to_head('c')
 test.add_to_head('b')
 test.add_to_head('a')
+print('        NON REVERSED')
 test.print_list()
 test.reverse_list()
+print('          REVERSED')
 test.print_list()
