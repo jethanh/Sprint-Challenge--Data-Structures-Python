@@ -38,12 +38,27 @@ class LinkedList:
 
         return False
 
-    def reverse_list(self, node, prev):
-        current = self.head
-        prev = None
+    def reverse_list(self):
+        current = self.head #start with head node
+        prev = None #previous when current changes
         while current:
-            nxt = current.get_next()
-            current.set_next(prev)
-            prev = current
-            current = nxt
-        self.head = prev
+            nxt = current.get_next() #find the next node to current
+            current.set_next(prev) #set the next node to be the one previous of current.
+            prev = current #set previous to be whatever the current node is, then move to next.
+            current = nxt #repeat the process on the next node
+        self.head = prev #set the head to be the last occurence
+
+    def print_list(self):
+        current = self.head
+        print('\n')
+        while current:
+            print(current.value)
+            current = current.next_node
+
+test = LinkedList()
+test.add_to_head('c')
+test.add_to_head('b')
+test.add_to_head('a')
+test.print_list()
+test.reverse_list()
+test.print_list()
